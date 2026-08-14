@@ -1,6 +1,6 @@
 # CantRead
 
-A Pebble watchapp/watchface written in C using the Pebble SDK.
+Cool watchface someone else made years ago I loved. I made it for Watchy; I'm making it again here!
 
 ## Building & running
 
@@ -20,12 +20,12 @@ basalt, chalk, diorite) are included by default for backwards compatibility.
 ## Project layout
 
 ```
-src/c/           C source for the watchapp
-src/pkjs/        PebbleKit JS (phone-side) source, if any
-worker_src/c/    Background worker source, if any
-resources/       Images, fonts, and other bundled resources
-package.json     Project metadata (UUID, platforms, resources, message keys)
-wscript          Build rules — usually no need to edit
+src/           C source for the watchapp
+src/pkjs/      PebbleKit JS (phone-side) source, if any
+worker_src/    Background worker source, if any
+resources/     Images, fonts, and other bundled resources
+package.json   Project metadata (UUID, platforms, resources, message keys)
+wscript        Build rules — usually no need to edit
 ```
 
 By default this project is configured as a watchapp. To make it a watchface,
