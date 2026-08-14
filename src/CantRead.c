@@ -1,35 +1,30 @@
 #include <pebble.h>
 
+#include "bitmasks/number_bitmask_interface.h"
+
 static Window *s_window;
 static Layer *s_canvas_layer;
 
 const int16_t EMERY_BLOCK_WIDTH = 25;
 const int16_t EMERY_BLOCK_HEIGHT = 19;
 
-// I think I like the bitmask solution
-const uint32_t MASK =       0b00000000000000000000000000000001;
-const uint32_t NUMBER_DEF = 0b00000000111001110011100111000000;
 static void canvas_update_proc(Layer *layer, GContext *ctx) {
   graphics_context_set_stroke_color(ctx, GColorBlack);
   graphics_context_set_fill_color(ctx, GColorBlack);
 
   GPoint origin = GPoint(0, 0);
-  for (int i = 0; i < 30; i++) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "Checking %u", MASK >> i);
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "Value was %u", MASK & NUMBER_DEF);
-
-    if ((MASK >> i) & NUMBER_DEF) {
-      int16_t y = i / 5;
-      int16_t x = i % 5;
-
-      GRect bounds = GRect(
-        origin.x + x * EMERY_BLOCK_WIDTH,
-        origin.y + y * EMERY_BLOCK_HEIGHT,
-        EMERY_BLOCK_WIDTH,
-        EMERY_BLOCK_HEIGHT
-      );
-      graphics_draw_rect(ctx, bounds);
-      graphics_fill_rect(ctx, bounds, 0, GCornersAll);
+  for (int16_t y = 0; y < 6; y++) {
+    for (int16_t x = 0; x < 5; x++) {
+      if (should_draw_block(ZERO, x, y)) {
+        GRect bounds = GRect(
+          origin.x + x * EMERY_BLOCK_WIDTH,
+          origin.y + y * EMERY_BLOCK_HEIGHT,
+          EMERY_BLOCK_WIDTH,
+          EMERY_BLOCK_HEIGHT
+        );
+        graphics_draw_rect(ctx, bounds);
+        graphics_fill_rect(ctx, bounds, 0, GCornersAll);
+      }
     }
   }
 }
