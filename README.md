@@ -2,6 +2,13 @@
 
 Cool watchface someone else made years ago I loved. I made it for Watchy; I'm making it again here!
 
+## TODO
+
+- [ ] Support for other watch sizes (e.g. basalt)
+- [ ] Configurable background and foreground colors
+    * See [these docs for details](https://developer.rebble.io/guides/communication/using-pebblekit-js/)
+- [ ] Animated transitions
+
 ## Building & running
 
 ```sh

@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {},
   "pebble": {
-    "displayName": "CantRead",
+    "displayName": "Can't Read",
     "uuid": "081dec6b-c579-4984-8bcd-9a633bb241b7",
     "sdkVersion": "3",
     "enableMultiJS": true,
