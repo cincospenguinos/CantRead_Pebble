@@ -2,6 +2,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+/**
+ * DisplayNumberEnum
+ *
+ * Enumerated type for what number to show
+ */
 typedef enum {
     DISPLAY_NUM_ZERO,
     DISPLAY_NUM_ONE,
@@ -15,4 +20,12 @@ typedef enum {
     DISPLAY_NUM_NINE,
 } DisplayNumberEnum;
 
+/**
+ *
+ */
+DisplayNumberEnum display_number_from_char(char c);
+
+/**
+ *
+ */
 bool should_draw_block(DisplayNumberEnum e, int16_t x, int16_t y);
