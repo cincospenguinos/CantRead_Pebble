@@ -15,7 +15,7 @@ static void canvas_update_proc(Layer *layer, GContext *ctx) {
   GPoint origin = GPoint(0, 0);
   for (int16_t y = 0; y < 6; y++) {
     for (int16_t x = 0; x < 5; x++) {
-      if (should_draw_block(TWO, x, y)) {
+      if (should_draw_block(DISPLAY_NUM_FIVE, x, y)) {
         GRect bounds = GRect(
           origin.x + x * EMERY_BLOCK_WIDTH,
           origin.y + y * EMERY_BLOCK_HEIGHT,
